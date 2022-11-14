@@ -1,4 +1,4 @@
-package com.tcc.fundatec.api.model;
+package com.tcc.fundatec.domain.model;
 
 public enum TipoPessoaEnum {
     CANDIDATO,

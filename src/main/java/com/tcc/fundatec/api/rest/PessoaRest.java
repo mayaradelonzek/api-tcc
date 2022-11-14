@@ -1,8 +1,8 @@
-package com.tcc.fundatec.api.resource;
+package com.tcc.fundatec.api.rest;
 
 import com.tcc.fundatec.api.event.RecursoCriadoEvent;
-import com.tcc.fundatec.api.model.Pessoa;
-import com.tcc.fundatec.api.repository.PessoaRepository;
+import com.tcc.fundatec.domain.model.Pessoa;
+import com.tcc.fundatec.infrastructure.repository.PessoaRepository;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,12 +15,12 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/pessoas")
-public class PessoaResource {
+public class PessoaRest {
 
     private PessoaRepository pessoaRepository;
     private ApplicationEventPublisher publisher;
 
-    public PessoaResource(PessoaRepository pessoaRepository, ApplicationEventPublisher publisher) {
+    public PessoaRest(PessoaRepository pessoaRepository, ApplicationEventPublisher publisher) {
         this.pessoaRepository = pessoaRepository;
         this.publisher = publisher;
     }

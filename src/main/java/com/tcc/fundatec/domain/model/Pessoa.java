@@ -1,4 +1,4 @@
-package com.tcc.fundatec.api.model;
+package com.tcc.fundatec.domain.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

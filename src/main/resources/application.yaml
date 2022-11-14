@@ -1,0 +1,32 @@
+server:
+  port: 8081
+  error:
+    include-message: always
+    include-stacktrace: never
+
+swagger:
+  basePackage: br.com.dbc
+  meta:
+    title: Nome da api
+    description: A
+    version: 1.0
+  contact:
+    name: Mayara Delonzek
+    url: https://github.com/mayaradelonzek
+    email: mayaradelonzek2@gmail.com
+
+spring:
+  datasource:
+    driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    url: jdbc:sqlserver://tcc-fundatec.database.windows.net;databaseName={TCC-Mayara}
+    username: 'Tcc.Dev'
+    password: '6fEHBjNn2Wi!p2Q'
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.SQLServer2012Dialect
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
