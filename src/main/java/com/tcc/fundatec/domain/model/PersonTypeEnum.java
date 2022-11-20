@@ -1,6 +1,6 @@
 package com.tcc.fundatec.domain.model;
 
-public enum TipoPessoaEnum {
+public enum PersonTypeEnum {
     CANDIDATO,
     RECRUTADOR
 }
