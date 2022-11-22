@@ -5,14 +5,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotBlank;
-import java.time.LocalDateTime;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CandidateDTO {
-
-    private Long id;
+public class CreateCandidateInput {
 
     @NotBlank(message = "O nome é obrigatório")
     private String name;
@@ -30,6 +27,4 @@ public class CandidateDTO {
     private String phone;
 
     private String resume;
-    private LocalDateTime createDate;
-    private LocalDateTime updateDate;
 }

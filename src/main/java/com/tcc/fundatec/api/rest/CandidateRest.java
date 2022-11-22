@@ -1,11 +1,12 @@
 package com.tcc.fundatec.api.rest;
 
-import com.tcc.fundatec.api.dto.CandidateDTO;
+import com.tcc.fundatec.api.dto.CreateCandidateInput;
+import com.tcc.fundatec.api.dto.CreateCandidateOutput;
+import com.tcc.fundatec.api.exception.BusinessException;
 import com.tcc.fundatec.domain.model.Candidate;
 import com.tcc.fundatec.domain.service.CandidateService;
 import com.tcc.fundatec.infrastructure.repository.CandidateRepository;
-import io.swagger.annotations.Api;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,21 +19,20 @@ import java.util.Optional;
 @RequestMapping("/candidates")
 //@Api(tags = "Candidates")
 @CrossOrigin(origins = "*")
+@AllArgsConstructor
 public class CandidateRest {
 
-    @Autowired
-    private CandidateService candidateService;
-    @Autowired
-    private CandidateRepository candidateRepository;
+    private final CandidateService candidateService;
+    private final CandidateRepository candidateRepository;
 
     @PostMapping
-    public ResponseEntity<CandidateDTO> create(@RequestBody @Valid CandidateDTO candidateDTO) {
-        var candidate = candidateService.create(candidateDTO);
+    public ResponseEntity<CreateCandidateOutput> create(@RequestBody @Valid CreateCandidateInput createCandidateInput) {
+        var candidate = candidateService.create(createCandidateInput);
         return ResponseEntity.status(HttpStatus.CREATED).body(candidate);
     }
 
     @GetMapping
-    public ResponseEntity<List<CandidateDTO>> findAll() {
+    public ResponseEntity<List<CreateCandidateOutput>> findAll() {
         return ResponseEntity.ok(candidateService.findAllCandidates());
     }
 
@@ -45,11 +45,13 @@ public class CandidateRest {
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable Long id) {
+        Optional<Candidate> candidateToDelete = candidateRepository.findById(id);
+        ResponseEntity.ok(candidateToDelete.orElseThrow(() -> new BusinessException("Candidato não encontrado")));
         candidateRepository.deleteById(id);
     }
 
     public ResponseEntity<Candidate> edit(@PathVariable Long id, @Valid @RequestBody Candidate candidate) {
-        Candidate candidateToEdit = candidateRepository.getById(id);
-        return ResponseEntity.ok(candidateToEdit);
+        Optional<Candidate> candidateToEdit = candidateRepository.findById(id);
+        return ResponseEntity.ok(candidateToEdit.orElseThrow(() -> new BusinessException("Candidato não encontrado")));
     }
 }

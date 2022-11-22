@@ -1,0 +1,4 @@
+INSERT INTO candidate (name, cpf, linkedin, email, phone, resume) VALUES ('Mayara', '08197701911', 'linkedin/mayara', 'mayaradelonzek@gmail.com', '991514340', 'resume');
+INSERT INTO candidate (name, cpf, linkedin, email, phone, resume) VALUES ('Testerson', '08197701911', 'linkedin/test', 'test@gmail.com', '991514340', 'resume');
+INSERT INTO candidate (name, cpf, linkedin, email, phone, resume) VALUES ('Rodrigo', '08197701911', 'linkedin/ro', 'ro@gmail.com', '991514340', 'resume');
+INSERT INTO candidate (name, cpf, linkedin, email, phone, resume) VALUES ('Don', '08197701911', 'linkedin/don', 'don@gmail.com', '991514340', 'resume');

@@ -2,10 +2,7 @@ package com.tcc.fundatec.domain.model;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @AllArgsConstructor
@@ -14,6 +11,7 @@ import java.time.LocalDateTime;
 @Setter
 @Entity
 @Builder
+@Table(name = "CANDIDATE")
 public class Candidate extends Person {
 
     @Id
