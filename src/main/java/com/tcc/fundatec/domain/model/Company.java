@@ -29,4 +29,8 @@ public class Company extends Person {
     @OneToMany(mappedBy = "company")
     private List<Vacancy> vacancies;
 
+    public Company(Long id) {
+        this.id = id;
+    }
+
 }

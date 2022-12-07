@@ -34,13 +34,21 @@ public class Vacancy {
     @Column(name = "data_ultima_atualizacao")
     @LastModifiedDate
     private LocalDateTime lastUpdateDate;
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name = "VAGA_COMPETENCIA",
             joinColumns = @JoinColumn(name = "id_vaga"),
             inverseJoinColumns = @JoinColumn(name = "id_competencia"))
     private List<Competence> competences;
+    @ManyToMany(mappedBy = "vacancies")
+    private List<Candidate> candidates;
     @Enumerated(EnumType.STRING)
     private VacancyStatusEnum status;
     @Column(name = "remuneracao", precision = 15, scale = 2)
     private BigDecimal salary;
+
+    public Vacancy(Long id) {
+        this.id = id;
+    }
+
 }

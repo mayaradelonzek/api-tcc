@@ -1,9 +1,7 @@
 package com.tcc.fundatec.domain.service;
 
-import com.tcc.fundatec.api.converter.CandidateConverter;
-import com.tcc.fundatec.api.dto.CreateCandidateInput;
-import com.tcc.fundatec.api.dto.CreateCandidateOutput;
 import com.tcc.fundatec.domain.model.Candidate;
+import com.tcc.fundatec.domain.model.Vacancy;
 import com.tcc.fundatec.infrastructure.repository.CandidateRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -12,7 +10,6 @@ import org.slf4j.LoggerFactory;
 
 import javax.transaction.Transactional;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
@@ -21,23 +18,30 @@ public class CandidateService {
     private static final Logger LOGGER = LoggerFactory.getLogger(CandidateService.class);
 
     private final CandidateRepository candidateRepository;
-
-    private final CandidateConverter candidateConverter;
+    private final VacancyService vacancyService;
 
     @Transactional
-    public CreateCandidateOutput create(CreateCandidateInput createCandidateInput) {
-        Candidate candidate = candidateConverter.candidateDtoToModel(createCandidateInput);
-
+    public Candidate create(Candidate candidate) {
         Candidate savedCandidate = this.candidateRepository.save(candidate);
         LOGGER.info("Candidato Salvo - '{}' ", savedCandidate);
 
-        return new CreateCandidateOutput(savedCandidate);
+        return savedCandidate;
     }
 
-    public List<CreateCandidateOutput> findAllCandidates() {
-        return candidateRepository.findAll().stream()
-                .map(CreateCandidateOutput::new)
-                .collect(Collectors.toList());
+    private Candidate findOrFail(Long id) {
+        return this.candidateRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Candidato não encontrado"));
+    }
+
+    public Candidate associateVacancies(Long id, List<Long> vacanciesIds) {
+        List<Vacancy> vacancies = this.vacancyService.findVacancies(vacanciesIds);
+        Candidate candidate = this.findOrFail(id);
+        candidate.setVacancies(vacancies);
+        return candidate;
+    }
+
+    public List<Candidate> findAllCandidates() {
+        return candidateRepository.findAll();
     }
 
 

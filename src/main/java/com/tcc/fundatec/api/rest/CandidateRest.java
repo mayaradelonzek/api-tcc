@@ -1,5 +1,6 @@
 package com.tcc.fundatec.api.rest;
 
+import com.tcc.fundatec.api.converter.CandidateConverter;
 import com.tcc.fundatec.api.dto.CreateCandidateInput;
 import com.tcc.fundatec.api.dto.CreateCandidateOutput;
 import com.tcc.fundatec.api.exception.BusinessException;
@@ -27,19 +28,26 @@ public class CandidateRest {
 
     @PostMapping
     public ResponseEntity<CreateCandidateOutput> create(@RequestBody @Valid CreateCandidateInput createCandidateInput) {
-        var candidate = candidateService.create(createCandidateInput);
-        return ResponseEntity.status(HttpStatus.CREATED).body(candidate);
+        var candidate = candidateService.create(CandidateConverter.createCandidateDtoToModel(createCandidateInput));
+//        return ResponseEntity.status(HttpStatus.CREATED).body(candidate);
+        return null;
     }
 
     @GetMapping
     public ResponseEntity<List<CreateCandidateOutput>> findAll() {
-        return ResponseEntity.ok(candidateService.findAllCandidates());
+        return null;
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Candidate> findById(@PathVariable Long id) {
         Optional<Candidate> candidate = candidateRepository.findById(id);
         return candidate.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    }
+
+    @PutMapping("/{id}/associate-vacancies")
+    public ResponseEntity<Candidate> associateVacancies(@PathVariable Long id, @RequestBody List<Long> vacanciesIds) {
+        Candidate candidate = this.candidateService.associateVacancies(id, vacanciesIds);
+        return ResponseEntity.ok(candidate);
     }
 
     @DeleteMapping("/{id}")

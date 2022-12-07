@@ -24,7 +24,7 @@ public class CreateCandidateOutput {
         this.linkedin = candidate.getLinkedin();
         this.phone = candidate.getPhone();
         this.resume = candidate.getResume();
-        this.competences = candidate.getCompetences();
+//        this.competences = candidate.getCompetences();
     }
 
 }

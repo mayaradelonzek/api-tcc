@@ -14,6 +14,10 @@ import java.util.List;
 @Table(name = "COMPETENCIA")
 public class Competence {
 
+    public Competence(Long id) {
+        this.id = id;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

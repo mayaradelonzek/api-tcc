@@ -2,9 +2,9 @@ INSERT INTO candidato (nome, cpf, linkedin, email, telefone, curriculo, endereco
 INSERT INTO candidato (nome, cpf, linkedin, email, telefone, curriculo, endereco) VALUES ('Testerson', '08197701921', 'linkedin/test', 'test@gmail.com', '991514340', 'resume', 'Rua blabs');
 INSERT INTO candidato (nome, cpf, linkedin, email, telefone, curriculo, endereco) VALUES ('Rodrigo', '08197701912', 'linkedin/ro', 'ro@gmail.com', '991514340', 'resume', 'Rua blabs');
 INSERT INTO candidato (nome, cpf, linkedin, email, telefone, curriculo, endereco) VALUES ('Don', '08197721911', 'linkedin/don', 'don@gmail.com', '991514340', 'resume', 'Rua blabs');
-INSERT INTO empresa (nome_fantasia, razao_social, cnpj, linkedin, email, telefone, endereco) VALUES ('Don Pet1', 'Don Company e cia1', '78297125000112', 'linkedin/don', 'don@gmail.com', '991514340', 'Rua blabs');
-INSERT INTO empresa (nome_fantasia, razao_social, cnpj, linkedin, email, telefone, endereco) VALUES ('Don Pet2', 'Don Company e cia2', '00168416000113', 'linkedin/don', 'don@gmail.com', '991514340', 'Rua blabs');
-INSERT INTO empresa (nome_fantasia, razao_social, cnpj, linkedin, email, telefone, endereco) VALUES ('Don Pet3', 'Don Company e cia3', '10145243000171', 'linkedin/don', 'don@gmail.com', '991514340', 'Rua blabs');
+INSERT INTO empresa (nome_fantasia, razao_social, cnpj, linkedin, email, telefone, endereco, plano) VALUES ('Don Pet1', 'Don Company e cia1', '78297125000112', 'linkedin/don', 'don@gmail.com', '991514340', 'Rua blabs', 'FREE');
+INSERT INTO empresa (nome_fantasia, razao_social, cnpj, linkedin, email, telefone, endereco, plano) VALUES ('Don Pet2', 'Don Company e cia2', '00168416000113', 'linkedin/don', 'don@gmail.com', '991514340', 'Rua blabs', 'PREMIUM');
+INSERT INTO empresa (nome_fantasia, razao_social, cnpj, linkedin, email, telefone, endereco, plano) VALUES ('Don Pet3', 'Don Company e cia3', '10145243000171', 'linkedin/don', 'don@gmail.com', '991514340', 'Rua blabs', 'SUPER_PREMIUM');
 INSERT INTO competencia (nome) VALUES ('JAVA');
 INSERT INTO competencia (nome) VALUES ('HTML');
 INSERT INTO competencia (nome) VALUES ('CSS');
@@ -18,4 +18,17 @@ INSERT INTO candidato_competencia (id_candidato, id_competencia) VALUES (4, 2);
 INSERT INTO candidato_competencia (id_candidato, id_competencia) VALUES (4, 3);
 INSERT INTO candidato_competencia (id_candidato, id_competencia) VALUES (4, 4);
 INSERT INTO candidato_competencia (id_candidato, id_competencia) VALUES (4, 4);
-INSERT INTO vaga (id_empresa, nome, descricao, status, remuneracao) VALUES (1, '')
+INSERT INTO vaga (id_empresa, nome, descricao, status, remuneracao) VALUES (1, 'vaga1', 'vaga1', 'OPEN', 10.12);
+INSERT INTO vaga (id_empresa, nome, descricao, status, remuneracao) VALUES (1, 'vaga2', 'vaga2', 'OPEN', 10.13);
+INSERT INTO vaga (id_empresa, nome, descricao, status, remuneracao) VALUES (2, 'vaga3', 'vaga3', 'OPEN', 10.14);
+INSERT INTO vaga (id_empresa, nome, descricao, status, remuneracao) VALUES (3, 'vaga4', 'vaga4', 'OPEN', 10.15);
+INSERT INTO vaga_competencia(id_vaga, id_competencia) VALUES (1, 1);
+INSERT INTO vaga_competencia(id_vaga, id_competencia) VALUES (1, 2);
+INSERT INTO vaga_competencia(id_vaga, id_competencia) VALUES (1, 3);
+INSERT INTO vaga_competencia(id_vaga, id_competencia) VALUES (2, 4);
+INSERT INTO vaga_competencia(id_vaga, id_competencia) VALUES (3, 3);
+INSERT INTO vaga_competencia(id_vaga, id_competencia) VALUES (4, 2);
+INSERT INTO candidato_vaga(id_candidato, id_vaga) VALUES (1, 1);
+INSERT INTO candidato_vaga(id_candidato, id_vaga) VALUES (1, 2);
+INSERT INTO candidato_vaga(id_candidato, id_vaga) VALUES (2, 1);
+

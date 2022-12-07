@@ -1,20 +1,16 @@
 package com.tcc.fundatec.api.converter;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.tcc.fundatec.api.dto.CreateCandidateInput;
 import com.tcc.fundatec.domain.model.Candidate;
-import lombok.AllArgsConstructor;
+import com.tcc.fundatec.domain.model.Competence;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
-@AllArgsConstructor
-@Component
 public class CandidateConverter {
 
-    final ObjectMapper objectMapper;
-
-    public Candidate candidateDtoToModel(CreateCandidateInput createCandidateInput) {
+    public static Candidate createCandidateDtoToModel(CreateCandidateInput createCandidateInput) {
         Candidate candidate = new Candidate();
         candidate.setName(createCandidateInput.getName());
         candidate.setCpf(createCandidateInput.getCpf());
@@ -22,8 +18,7 @@ public class CandidateConverter {
         candidate.setPhone(createCandidateInput.getPhone());
         candidate.setLinkedin(createCandidateInput.getLinkedin());
         candidate.setResume(createCandidateInput.getResume());
-        candidate.setLastUpdateDate(LocalDateTime.now());
-        candidate.setCreateDate(LocalDateTime.now());
+        candidate.setAddress(createCandidateInput.getAddress());
 
         return candidate;
     }

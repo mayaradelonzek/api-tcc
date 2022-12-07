@@ -1,6 +1,6 @@
 package com.tcc.fundatec.api.dto;
 
-import com.tcc.fundatec.domain.model.Competence;
+import com.tcc.fundatec.domain.model.PaymentTierEnum;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,13 +11,16 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CreateCandidateInput {
-
+public class CreateCompanyInput {
     @NotBlank(message = "O nome é obrigatório")
-    private String name;
+    private String tradingName;
+    @NotBlank(message = "O nome é obrigatório")
+    private String companyName;
 
     @NotBlank(message = "O CPF é obrigatório")
-    private String cpf;
+    private String cnpj;
+    @NotBlank(message = "O CPF é obrigatório")
+    private PaymentTierEnum paymentTier;
 
     @NotBlank(message = "O e-mail é obrigatório")
     private String email;
@@ -33,4 +36,5 @@ public class CreateCandidateInput {
 
     private String resume;
 
+    private List<Long> vacanciesIds;
 }

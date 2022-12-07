@@ -24,10 +24,17 @@ public class Candidate extends Person {
     private String cpf;
     @Column(name = "curriculo")
     private String resume;
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
         name = "CANDIDATO_COMPETENCIA",
         joinColumns = @JoinColumn(name = "id_candidato"),
         inverseJoinColumns = @JoinColumn(name = "id_competencia"))
     private List<Competence> competences;
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "CANDIDATO_VAGA",
+            joinColumns = @JoinColumn(name = "id_candidato"),
+            inverseJoinColumns = @JoinColumn(name = "id_vaga"))
+    private List<Vacancy> vacancies;
 
 }
