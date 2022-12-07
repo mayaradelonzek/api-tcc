@@ -1,4 +1,21 @@
-INSERT INTO candidate (name, cpf, linkedin, email, phone, resume) VALUES ('Mayara', '08197701911', 'linkedin/mayara', 'mayaradelonzek@gmail.com', '991514340', 'resume');
-INSERT INTO candidate (name, cpf, linkedin, email, phone, resume) VALUES ('Testerson', '08197701911', 'linkedin/test', 'test@gmail.com', '991514340', 'resume');
-INSERT INTO candidate (name, cpf, linkedin, email, phone, resume) VALUES ('Rodrigo', '08197701911', 'linkedin/ro', 'ro@gmail.com', '991514340', 'resume');
-INSERT INTO candidate (name, cpf, linkedin, email, phone, resume) VALUES ('Don', '08197701911', 'linkedin/don', 'don@gmail.com', '991514340', 'resume');
+INSERT INTO candidato (nome, cpf, linkedin, email, telefone, curriculo, endereco) VALUES ('Mayara', '08197701911', 'linkedin/mayara', 'mayaradelonzek@gmail.com', '991514340', 'resume', 'Rua blabs');
+INSERT INTO candidato (nome, cpf, linkedin, email, telefone, curriculo, endereco) VALUES ('Testerson', '08197701921', 'linkedin/test', 'test@gmail.com', '991514340', 'resume', 'Rua blabs');
+INSERT INTO candidato (nome, cpf, linkedin, email, telefone, curriculo, endereco) VALUES ('Rodrigo', '08197701912', 'linkedin/ro', 'ro@gmail.com', '991514340', 'resume', 'Rua blabs');
+INSERT INTO candidato (nome, cpf, linkedin, email, telefone, curriculo, endereco) VALUES ('Don', '08197721911', 'linkedin/don', 'don@gmail.com', '991514340', 'resume', 'Rua blabs');
+INSERT INTO empresa (nome_fantasia, razao_social, cnpj, linkedin, email, telefone, endereco) VALUES ('Don Pet1', 'Don Company e cia1', '78297125000112', 'linkedin/don', 'don@gmail.com', '991514340', 'Rua blabs');
+INSERT INTO empresa (nome_fantasia, razao_social, cnpj, linkedin, email, telefone, endereco) VALUES ('Don Pet2', 'Don Company e cia2', '00168416000113', 'linkedin/don', 'don@gmail.com', '991514340', 'Rua blabs');
+INSERT INTO empresa (nome_fantasia, razao_social, cnpj, linkedin, email, telefone, endereco) VALUES ('Don Pet3', 'Don Company e cia3', '10145243000171', 'linkedin/don', 'don@gmail.com', '991514340', 'Rua blabs');
+INSERT INTO competencia (nome) VALUES ('JAVA');
+INSERT INTO competencia (nome) VALUES ('HTML');
+INSERT INTO competencia (nome) VALUES ('CSS');
+INSERT INTO competencia (nome) VALUES ('JAVASCRIPT');
+INSERT INTO candidato_competencia (id_candidato, id_competencia) VALUES (1, 1);
+INSERT INTO candidato_competencia (id_candidato, id_competencia) VALUES (1, 2);
+INSERT INTO candidato_competencia (id_candidato, id_competencia) VALUES (2, 4);
+INSERT INTO candidato_competencia (id_candidato, id_competencia) VALUES (3, 1);
+INSERT INTO candidato_competencia (id_candidato, id_competencia) VALUES (4, 1);
+INSERT INTO candidato_competencia (id_candidato, id_competencia) VALUES (4, 2);
+INSERT INTO candidato_competencia (id_candidato, id_competencia) VALUES (4, 3);
+INSERT INTO candidato_competencia (id_candidato, id_competencia) VALUES (4, 4);
+INSERT INTO candidato_competencia (id_candidato, id_competencia) VALUES (4, 4);
+INSERT INTO vaga (id_empresa, nome, descricao, status, remuneracao) VALUES (1, '')

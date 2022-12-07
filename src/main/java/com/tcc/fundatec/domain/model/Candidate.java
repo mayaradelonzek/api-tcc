@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -11,13 +12,22 @@ import java.time.LocalDateTime;
 @Setter
 @Entity
 @Builder
-@Table(name = "CANDIDATE")
+@Table(name = "CANDIDATO")
 public class Candidate extends Person {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private LocalDateTime createDate;
-    private LocalDateTime updateDate;
+    @Column(name = "nome")
+    private String name;
+    @Column(unique = true)
+    private String cpf;
+    @Column(name = "curriculo")
+    private String resume;
+    @JoinTable(
+        name = "CANDIDATO_COMPETENCIA",
+        joinColumns = @JoinColumn(name = "id_candidato"),
+        inverseJoinColumns = @JoinColumn(name = "id_competencia"))
+    private List<Competence> competences;
 
 }

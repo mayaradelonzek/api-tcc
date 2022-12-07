@@ -22,7 +22,7 @@ public class CandidateConverter {
         candidate.setPhone(createCandidateInput.getPhone());
         candidate.setLinkedin(createCandidateInput.getLinkedin());
         candidate.setResume(createCandidateInput.getResume());
-        candidate.setUpdateDate(LocalDateTime.now());
+        candidate.setLastUpdateDate(LocalDateTime.now());
         candidate.setCreateDate(LocalDateTime.now());
 
         return candidate;
