@@ -3,7 +3,6 @@ package com.tcc.fundatec.domain.model;
 import lombok.*;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 import java.util.List;
 
 @AllArgsConstructor
@@ -20,7 +19,7 @@ public class Candidate extends Person {
     private Long id;
     @Column(name = "nome")
     private String name;
-    @Column(unique = true)
+//    @Column(unique = true)
     private String cpf;
     @Column(name = "curriculo")
     private String resume;

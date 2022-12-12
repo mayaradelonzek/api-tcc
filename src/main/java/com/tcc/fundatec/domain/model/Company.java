@@ -1,5 +1,6 @@
 package com.tcc.fundatec.domain.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.*;
@@ -23,9 +24,9 @@ public class Company extends Person {
     private String companyName;
     @Column(unique = true)
     private String cnpj;
-    @Enumerated(EnumType.STRING)
-    @Column(name = "plano")
-    private PaymentTierEnum paymentTier;
+    @JoinColumn(name = "id_plano", nullable = false)
+    @ManyToOne
+    private PaymentTier paymentTier;
     @OneToMany(mappedBy = "company")
     private List<Vacancy> vacancies;
 

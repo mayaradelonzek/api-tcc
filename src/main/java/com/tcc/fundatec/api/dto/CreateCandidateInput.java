@@ -4,6 +4,7 @@ import com.tcc.fundatec.domain.model.Competence;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.constraints.NotBlank;
 import java.util.List;
@@ -28,9 +29,10 @@ public class CreateCandidateInput {
     @NotBlank(message = "O celular é obrigatório")
     private String phone;
 
-    @NotBlank(message = "O celular é obrigatório")
+//    @NotBlank(message = "O endereço é obrigatório")
     private String address;
+    private List<Competence> competences;
 
-    private String resume;
+
 
 }

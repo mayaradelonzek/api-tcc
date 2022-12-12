@@ -1,5 +1,6 @@
 package com.tcc.fundatec.domain.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 
 import javax.persistence.*;
@@ -24,6 +25,7 @@ public class Competence {
     @Column(name = "nome")
     private String name;
     @ManyToMany(mappedBy = "competences")
+    @JsonIgnoreProperties(value = { "competences", "vacancies" })
     private List<Candidate> candidates;
 
 }

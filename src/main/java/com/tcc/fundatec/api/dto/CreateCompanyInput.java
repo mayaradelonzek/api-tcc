@@ -1,6 +1,5 @@
 package com.tcc.fundatec.api.dto;
 
-import com.tcc.fundatec.domain.model.PaymentTierEnum;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,13 +13,15 @@ import java.util.List;
 public class CreateCompanyInput {
     @NotBlank(message = "O nome é obrigatório")
     private String tradingName;
-    @NotBlank(message = "O nome é obrigatório")
+
+    @NotBlank(message = "A razão social é obrigatória")
     private String companyName;
 
-    @NotBlank(message = "O CPF é obrigatório")
+    @NotBlank(message = "O CNPJ é obrigatório")
     private String cnpj;
-    @NotBlank(message = "O CPF é obrigatório")
-    private PaymentTierEnum paymentTier;
+
+    @NotBlank(message = "O tipo do plano é obrigatório")
+    private Long paymentTierId;
 
     @NotBlank(message = "O e-mail é obrigatório")
     private String email;
@@ -31,10 +32,8 @@ public class CreateCompanyInput {
     @NotBlank(message = "O celular é obrigatório")
     private String phone;
 
-    @NotBlank(message = "O celular é obrigatório")
+    @NotBlank(message = "O endereço é obrigatório")
     private String address;
-
-    private String resume;
 
     private List<Long> vacanciesIds;
 }
