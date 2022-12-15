@@ -31,7 +31,7 @@ public class VacancyRest {
          * */
     }
 
-    @GetMapping("/list")
+    @GetMapping("/featured")
     public List<TopPriorityVacancy> findAllList() {
         List<TopPriorityVacancy> v= this.vacancyService.findTopPriorityVacancies();
         return v;
